@@ -1,0 +1,32 @@
+/* 
+css 
+*/
+
+body {
+    font-size: 1.5em;
+    background-color: #d8d4db
+} 
+
+.div-conteudo-geral{
+    display: flex; 
+    align-items:center;
+    background-color: white;
+    border-radius: 5%;
+}
+
+ .class-img  {
+    width:90%;
+    height:50%;
+    border-left: 50px;
+} 
+
+#GRUPO_1{
+    size: 50%;
+}
+
+#GRUPO_2 strong{
+    color: red;
+}
+#GRUPO_2 sup{
+    color: black;
+}

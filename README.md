@@ -1,9 +1,9 @@
-# Meu primeiro projeto GitHub é meu site Portifólio
+# Site portifólio Victor Luan
 
+Neste repositório você encontrará arquivos fontes do meu site
 
-git config --global user.name "Victor Silva"
+## O porquê da criação deste site?
 
-git config --global user.email victorluansilva@gmail.com
+## Quem você almeja que veja o seu site?
 
-
-safsfddfg
+## Quais as futuras modificações/adições você planeja realizar no seu site?

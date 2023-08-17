@@ -1,0 +1,43 @@
+/* 
+css 
+*/
+
+body {
+    font-size: 1.5em;
+    background-color: #474747
+} 
+
+h1{
+    color: #209CE2;
+}
+
+.titulo-principal{
+    padding-left: 150px;
+}
+
+.conteudo #user-profile{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.conteudo{
+    background-color: white;
+    border-radius: 12%;
+    height: 800px;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 13px;
+    padding-right: 12px;
+}
+
+.conteudo a{
+    text-decoration: none;
+    color: red;
+}
+
+.conteudo a:hover{
+    text-decoration:underline;
+    color: blue;
+}

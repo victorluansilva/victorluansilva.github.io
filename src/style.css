@@ -1,43 +1,68 @@
-/* 
-css 
-*/
-
-body {
-    font-size: 1.5em;
-    background-color: #474747
-} 
-
-h1{
-    color: #209CE2;
+body{
+    background-color: #282A36;
+    color: #FF79C6;
+    font-size: 1.3em;
 }
 
-.titulo-principal{
-    padding-left: 150px;
+body a {
+ text-decoration: none;
+ font-size: 1.8em;
+ color: #FF79C6;
 }
 
-.conteudo #user-profile{
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-}
-
-.conteudo{
-    background-color: white;
-    border-radius: 12%;
-    height: 800px;
-    width: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-left: 13px;
-    padding-right: 12px;
-}
-
-.conteudo a{
-    text-decoration: none;
-    color: red;
-}
-
-.conteudo a:hover{
+body a:hover{
     text-decoration:underline;
     color: blue;
 }
+
+body h1{
+    color: #FF79C6;
+}
+
+
+body hr{
+    border-width: 5px;
+}
+
+
+header {
+    padding: 60px;
+    text-align: center;
+    background: white;
+    font-size: 30px;
+  }
+
+header a {
+    color: #FF79C6;
+}  
+
+.conteudo{
+    height: auto;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.conteudo #user-profile {
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+}
+
+.center-elements{
+    margin: 50px auto;
+    width: 50%;
+    border: 5px solid #FF79C6;
+    padding: 10%;
+    text-align: center;
+}
+
+
+/* margin: 50px 3px 30px 5px;  */
+/* topo:     margem de 50px */
+/* direita:  margem auto  */
+/* inferior: margem auto */
+/* esquerda: margem auto  */

@@ -58,6 +58,11 @@ nav a:hover {
     float: right !important;
 }
 
+.to-left{
+    float: left !important;
+}
+
+
 .padding-large{
     padding: 12px 24px !important;
 }

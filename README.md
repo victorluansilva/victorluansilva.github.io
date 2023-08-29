@@ -1,12 +1,1 @@
-# Site portifólio Victor Luan
-
-Neste repositório você encontrará arquivos fontes do meu site
-
-## O porquê da criação deste site?
-
-## Quem você almeja que veja o seu site?
-
-## Quais as futuras modificações/adições você planeja realizar no seu site?
-
-
-Modificação qualquer para exemplo de commit no git em um repositório local
+## Nova versão em andamento...

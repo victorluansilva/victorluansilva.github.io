@@ -132,7 +132,7 @@ section{
  } 
 
   #inicio{
-    margin-top: 100px;
+    margin-top: 50px;
   }
 
   .black-ground{
@@ -140,4 +140,6 @@ section{
     color: white;
   }
 
-  
+  footer{
+    background-color: gainsboro;
+  }

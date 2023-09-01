@@ -1,12 +1,13 @@
 # Site portifólio Victor Luan
 
-Neste repositório você encontrará arquivos fontes do meu site
-
 ## O porquê da criação deste site?
 
-## Quem você almeja que veja o seu site?
+Estou criando este site porque quero me divulgar melhor
 
-## Quais as futuras modificações/adições você planeja realizar no seu site?
+## Quem eu almeja que veja o meu site?
 
+Minha família, amigos e futaras empresas quais eu possa me inscrever.
 
-Modificação qualquer para exemplo de commit no git em um repositório local
+## Quais as futuras modificações/adições que planejo realizar no seu site?
+
+No futuro pretendo criar uma página com minha músicas autorais. Também vou criar uma parte para divulgação das minha artes/desenhos.

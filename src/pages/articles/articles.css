@@ -49,20 +49,19 @@ body {
 
 .articles {
     flex: 1;
-    margin: 50px 50px 0px 0px;
+    margin: 50px 40px 0px 0px;
     width: auto;
     height: auto;
 }
 
 section.cardBox {
     color: black;
-    margin-left: 200px;
     background-color: white; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    margin-left: 250px;
+    margin-left: 50px;
     padding: 0px 12px;
     height: 500px;
     width: 1000px;

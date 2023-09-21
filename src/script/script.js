@@ -1,8 +1,8 @@
 function openContent(event, articleName) {
-    var i, article_content, tablinks;
-    article_content = document.getElementsByClassName("article-content");
-    for (i = 0; i < article_content.length; i++) {
-      article_content[i].style.display = "none";
+    let i, article_content_vls, tablinks;
+    article_content_vls = document.getElementsByClassName("article_content_vls");
+    for (i = 0; i < article_content_vls.length; i++) {
+      article_content_vls[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {

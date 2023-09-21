@@ -47,14 +47,14 @@ body {
     justify-content: space-between;
 }
 
-.articles {
+.articles-vls {
     flex: 1;
     margin: 50px 50px 0px 0px;
     width: auto;
     height: auto;
 }
 
-section.cardBox {
+section.cardBox-vls {
     color: black;
     margin-left: 200px;
     background-color: white; 
@@ -71,7 +71,7 @@ section.cardBox {
 
 }
 
-.card {
+.card-vls {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
         0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }

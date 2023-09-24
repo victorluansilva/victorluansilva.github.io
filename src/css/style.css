@@ -221,3 +221,25 @@ section.cardBox-vls {
     background-color: white;
     color: black;
 }
+
+#carousel-teste .container-vls {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#carousel-teste .container-fluid-vls {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+}
+
+#carousel-test.container-vls {
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}

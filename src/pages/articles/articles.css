@@ -57,7 +57,7 @@ body {
 section.cardBox-vls {
     color: black;
     margin-left: 200px;
-    background-color: white; 
+    background-color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -74,6 +74,16 @@ section.cardBox-vls {
 .card-vls {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
         0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+#carousel-test {
+    width: auto;
+    max-width: auto;
+    white-space: nowrap;
+    max-width: 2000px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
 

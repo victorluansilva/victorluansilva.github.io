@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soma</title>
     <link rel="stylesheet" href="../../../public/bootstrap/css_bootstrap.min.css">
 </head>
+
 <body>
     <div class="container-fluid">
         <!-- ATIVIDADE 1 -->
@@ -56,52 +58,52 @@
         <div class="row">
             <div class="col-4">
                 <h4>Atividade nº 4</h4>
-                    <label for="temperatura">Digite a temperatura atual</label>
-                    <input type="text" id="temperatura">
+                <label for="temperatura">Digite a temperatura atual</label>
+                <input type="text" id="temperatura">
                 <button onclick="temperatura()">Verificar</button>
                 <p id="resultTemperatura"></p>
             </div>
         </div>
-    </div>    
-        <!-- ATIVIDADE 5 -->
-        <div class="row">
-            <div class="col-4">
-                <h4>Atividade nº 5</h4>
-                <div class="row-cols-4" id="materia1">
-                    <div class="col-2 p-md-4">
-                        <label for="ttMateria">Titulo matéria</label>
-                        <input type="text" id="ttMateria">
-                    </div>
-                    <div class="col-2 p-md-4 input-group" >
-                        <input type="number">
-                        <input type="number">
-                        <input type="number">
-                        <input type="number">
-                    </div>
+    </div>
+    <!-- ATIVIDADE 5 -->
+    <div class="row">
+        <div class="col-4">
+            <h4>Atividade nº 5</h4>
+            <div class="row-cols-4" id="materia1">
+                <div class="col-2 p-md-4">
+                    <label for="nomeMateria">Titulo matéria</label>
+                    <input type="text" id="nomeMateria">
                 </div>
-                <div>
-
+                <div class="col-2 p-md-4 input-group">
+                    <input type="number">
+                    <input type="number">
+                    <input type="number">
+                    <input type="number">
                 </div>
-                <button onclick="temperatura()">Verificar</button>
-                <p id="resultNotas"></p>
             </div>
+            <div>
+
+            </div>
+            <button onclick="save()">Verificar Notas</button>
+            <p id="resultNotas"></p>
         </div>
-    </div>    
-    
+    </div>
+    </div>
+
     <script>
         // 1) Verifique a idade: peça ao usuário para inserir a sua idade e verifique se ele é menor de idade, adulto ou idoso.
-        function verificarIdade(){
+        function verificarIdade() {
             let idade = parseInt(document.getElementById('inputIdade').value);
             let resultado = document.getElementById('resultIdade');
 
-            if(idade < 18){
+            if (idade < 18) {
                 resultado.innerText = "Menor de idade!";
-            } else if (idade >= 18 && idade <= 29){
+            } else if (idade >= 18 && idade <= 29) {
                 resultado.innerText = "É maior de idade e é um jovem adulto!";
-            } else if (idade >= 30 && idade <= 59){
+            } else if (idade >= 30 && idade <= 59) {
                 resultado.innerText = "É um adulto!";
             } else if (idade >= 60) {
-                resultado.innerText = "É uma pessoa idosa!" ;
+                resultado.innerText = "É uma pessoa idosa!";
             }
             // Maior e menor quê '>' ou '<'
             // Maior ou igual | menor ou igual '>=' ou '<='
@@ -112,21 +114,21 @@
 
         }
         // 2) Compare números: peça ao usuário para inserir dois números e diga qual deles é maior, ou se são iguais.
-        function comparaValores(){
+        function comparaValores() {
             let valorA = parseInt(document.getElementById('valorA').value);
             let valorB = parseInt(document.getElementById('valorB').value);
             let resultado = document.getElementById('resultCompValores');
 
             if (valorA > valorB) {
                 resultado.innerText = valorA + " é maior que " + valorB;
-            } else if(valorA < valorB){
+            } else if (valorA < valorB) {
                 resultado.innerText = valorB + " é maior que " + valorA;
-            } else if (valorA == valorB){
+            } else if (valorA == valorB) {
                 resultado.innerText = valorA + " e " + valorB + " são iguais.";
             }
         }
         // 3) Verifique se há divisibilidade: peça ao usuário para inserir dois números e verifique se o primeiro número é divisível pelo segundo.  
-        function ehDivisivel(){
+        function ehDivisivel() {
             let primeiroValor = parseInt(document.getElementById('primeiroValor').value);
             let segundoValor = parseInt(document.getElementById('segundoValor').value);
             let resultEhDivisivel = document.getElementById('resultEhDivisivel');
@@ -138,15 +140,15 @@
             }
         }
         // 4) Verificação de temperatura: peça o usuário para inserir uma temperatura e verifique se está frio, agradável ou quente.
-        function temperatura(){
+        function temperatura() {
             let temperatura = parseInt(document.getElementById('temperatura').value);
             let resultTemperatura = document.getElementById('resultTemperatura');
 
             if (temperatura >= 30) {
                 resultTemperatura.innerText = " Tá quente demais sô";
-            } else if(temperatura >= 15 && temperatura <= 26 ){
+            } else if (temperatura >= 15 && temperatura <= 26) {
                 resultTemperatura.innerText = " Essa temperatura está agradável";
-            } else if (temperatura >= 10){
+            } else if (temperatura >= 10) {
                 resultTemperatura.innerText = "Tá frio hoje, melho ir nadar não"
             }
         }
@@ -154,11 +156,24 @@
         // Pelo menos 3 matérias
         // Pelo menos 3 etapa
         // Exibir se aprovado ou reprovado com o resultado da média final em cada matéria 
-        function verificarNotas(){
 
+        let materia = { id: 0, nome: "", notas: [] };
+        let materias = [];
+        function save() {
+
+            materias.push(
+                materia.id++,
+                nome = nomeMateria,
+                notas.push(document.querySelectorAll("div.input-group input").forEach((element) => {
+                    return parseFloat(element.value);
+                }))
+            );
         }
-  </script>
 
-<script src="../../../public/bootstrap/css_bootstrap.min.css"></script>
+
+    </script>
+
+    <script src="../../../public/bootstrap/css_bootstrap.min.css"></script>
 </body>
+
 </html>

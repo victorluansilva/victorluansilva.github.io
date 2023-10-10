@@ -64,30 +64,59 @@
                 <p id="resultTemperatura"></p>
             </div>
         </div>
-    </div>
-    <!-- ATIVIDADE 5 -->
-    <div class="row">
-        <div class="col-4">
-            <h4>Atividade nº 5</h4>
-            <div class="row-cols-4" id="materia1">
-                <div class="col-2 p-md-4">
-                    <label for="nomeMateria">Titulo matéria</label>
-                    <input type="text" id="nomeMateria">
+        <!-- ATIVIDADE 5 -->
+        <div class="row">
+            <div class="col-4">
+                <h4>Atividade nº 5</h4>
+                <div class="row-cols-4" id="materia1">
+                    <div class="col-2 p-md-4">
+                        <label for="nomeMateria">Matéria</label>
+                        <input type="text" id="nomeMateria">
+                    </div>
+                    <div class="col-2 p-md-4 input-group">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                        <input type="number">
+                    </div>
                 </div>
-                <div class="col-2 p-md-4 input-group">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
-                </div>
+                <button onclick="save()">Verificar Notas</button>
+                <p class="m-3 p-2" id="resultNotas"></p>
             </div>
-            <div>
-
-            </div>
-            <button onclick="save()">Verificar Notas</button>
-            <p id="resultNotas"></p>
         </div>
-    </div>
+        <!-- ATIVIDADE 6 -->
+        <div class="row">
+            <div class="col-4">
+                <h4>Atividade nº 6</h4>
+                <label for="numberForFat">Fatorial de:</label>
+                <input type="text" id="numberForFat">
+                <button onclick="callFatorial()">Fatorar</button>
+
+                <p id="resultFatorial"></p>
+            </div>
+        </div>
+        <!-- ATIVIDADE 7 -->
+        <div class="row">
+            <div class="col-4">
+                <h4>Atividade nº 7</h4>
+                <label for="numRegressivo">Regressiva a partir de:</label>
+                <input type="text" id="numRegressivo">
+                <button onclick="callRegredir()">regredir</button>
+
+                <p id="resultRegressao"></p>
+            </div>
+        </div>
+        <!-- ATIVIDADE 8 -->
+        <div class="row">
+            <div class="col-4">
+                <h4>Atividade nº 8</h4>
+                <label for="numberTab">Tabuáda:</label>
+                <input type="text" id="numberTab">
+                <button onclick="tabuada()">TABUADA</button>
+
+                <p id="resultTabuada"></p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -156,21 +185,96 @@
         // Pelo menos 3 matérias
         // Pelo menos 3 etapa
         // Exibir se aprovado ou reprovado com o resultado da média final em cada matéria 
-
-        let materia = { id: 0, nome: "", notas: [] };
+        let materia = { id: 0, nome: "", notas: [], total: 0, printInfo: "" };
         let materias = [];
         function save() {
+            let inputNotas = [];
+            let totalNotas = 0;
+            let resultados = `<b>BOLETIM</b> <br>`;
+
+            document.querySelectorAll("div.input-group input").forEach(e => {
+                inputNotas.push(parseFloat(e.value))
+                totalNotas += parseFloat(e.value);
+            })
 
             materias.push(
-                materia.id++,
-                nome = nomeMateria,
-                notas.push(document.querySelectorAll("div.input-group input").forEach((element) => {
-                    return parseFloat(element.value);
-                }))
-            );
+                {
+                    id: materia.id++,
+                    nome: nomeMateria.value.toLocaleUpperCase(),
+                    notas: inputNotas,
+                    total: totalNotas,
+                    info: `<hr>
+                            RESULTADO DE: <b>${nomeMateria.value.toLocaleUpperCase()}</b> 
+                            <ul>
+                                <li><b>1º Bimestre:</b> ${inputNotas[0]}</li>
+                                <li><b>2º Bimestre:</b> ${inputNotas[1]}</li>
+                                <li><b>3º Bimestre:</b> ${inputNotas[2]}</li>
+                                <li><b>4º Bimestre:</b> ${inputNotas[3]}</li>
+                                <li>TOTAL FINAL: <b>${totalNotas}</b></li>
+                                <li>STATUS: <b>${isAprovadoOuReprovado(totalNotas)}</b></li>
+                            </ul>
+                            `
+                }
+            )
+
+            console.log(materias)
+
+            materias.forEach(e => {
+                resultados += `<br>` + e.info;
+            })
+
+            resultNotas.innerHTML = resultados;
         }
+        function isAprovadoOuReprovado(valor) {
+            if (valor >= 60) {
+                return "APROVADO"
+            } else {
+                return "REPROVADO"
+            }
+        }
+        // 6) Cálculo do fatorial de um número: peça ao usuário para inserir um número e calcule o fatorial desse número e mostre o processo do fatorial realizado;
+        function callFatorial() {
+            resultFatorial.innerText = fatorialByStep(parseInt(numberForFat.value));
+        }
+        function fatorial(value) {
+            if (value <= 0)
+                return 1;
+            else if (value > 0 && value <= 2)
+                return value;
+            else
+                return value * fatorial(value - 1);
+        }
+        function fatorialByStep(value) {
+            let fat = value;
+            let c = 1;
+            let step = `O fatorial de ${value}! é: ${fatorial(value)} \n`;
+            while (c < value) {
+                step += `${value}! = ${fat} x ${(value - c)}`
+                fat = fat * (value - c);
+                step += ` = ${fat} \n`
+                c++;
+            }
+            return step;
+        }
+        // 7) Contagem regressiva: peça o usuário para digita um número e,  com base nele, realize uma contagem regressiva de n até 1.
+        function callRegredir() {
+            let valor = numRegressivo.value;
+            let result ="";
+            for (let i = 0; i <= valor; i++) {
+                 result += (valor - i) + "\n"               ;
+            }
 
+            resultRegressao.innerText = result;
+        }
+        // 8) Tabuada de um número: peça ao usuário para inserir um número e imprima a tabuada desse número.
+        function tabuada() {
+            let concatValues = `TABUÁDA DO ${numberTab.value} \n`;
+            for (let i = 0; i <= 10; i++) {
+                concatValues += `${numberTab.value} x ${i} = ${numberTab.value*i} \n`
+            }
 
+            resultTabuada.innerText = concatValues;
+        }
     </script>
 
     <script src="../../../public/bootstrap/css_bootstrap.min.css"></script>

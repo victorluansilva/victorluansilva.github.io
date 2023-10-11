@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soma</title>
+    <title>LISTA JAVASCRIPT</title>
     <link rel="stylesheet" href="../../../public/bootstrap/css_bootstrap.min.css">
 </head>
 
@@ -69,6 +69,14 @@
             <div class="col-4">
                 <h4>Atividade nº 5</h4>
                 <div class="row-cols-4" id="materia1">
+                    <div class="col">
+                        <label for="nomeUsuario">Nome do aluno</label>
+                        <input type="text" id="nomeUsuario">
+                    </div>
+                    <div class="col">
+                        <label for="nomeInstituicao">Escola/Instituicao</label>
+                        <input type="text" id="nomeInstituicao">
+                    </div>
                     <div class="col-2 p-md-4">
                         <label for="nomeMateria">Matéria</label>
                         <input type="text" id="nomeMateria">
@@ -182,15 +190,18 @@
             }
         }
         // 5) Verificação de notas: peça ao usuário para inserir todas as notas no ano em cada matéria e, por fim, mostre se ele foi aprovado ou reprovado.
-        // Pelo menos 3 matérias
-        // Pelo menos 3 etapa
+            // Pelo menos 3 matérias
+            // Pelo menos 3 etapa
         // Exibir se aprovado ou reprovado com o resultado da média final em cada matéria 
         let materia = { id: 0, nome: "", notas: [], total: 0, printInfo: "" };
         let materias = [];
+        let user = {nome: "",instituicao:"", curso:""};
         function save() {
             let inputNotas = [];
             let totalNotas = 0;
-            let resultados = `<b>BOLETIM</b> <br>`;
+            user.nome = nomeUsuario.value;
+            user.instituicao = nomeInstituicao.value;
+            let resultados = `<b>BOLETIM DE: ${user.nome.toLocaleUpperCase()}</b><br><b>INSTITUIÇÃO/ESCOLA: ${user.instituicao.toLocaleUpperCase()} </b>`;
 
             document.querySelectorAll("div.input-group input").forEach(e => {
                 inputNotas.push(parseFloat(e.value))
@@ -205,13 +216,13 @@
                     total: totalNotas,
                     info: `<hr>
                             RESULTADO DE: <b>${nomeMateria.value.toLocaleUpperCase()}</b> 
-                            <ul>
-                                <li><b>1º Bimestre:</b> ${inputNotas[0]}</li>
-                                <li><b>2º Bimestre:</b> ${inputNotas[1]}</li>
-                                <li><b>3º Bimestre:</b> ${inputNotas[2]}</li>
-                                <li><b>4º Bimestre:</b> ${inputNotas[3]}</li>
-                                <li>TOTAL FINAL: <b>${totalNotas}</b></li>
-                                <li>STATUS: <b>${isAprovadoOuReprovado(totalNotas)}</b></li>
+                            <ul class="list-group">
+                                <li class="list-group-item"><b>1º Bimestre:</b> ${inputNotas[0]}</li>
+                                <li class="list-group-item"><b>2º Bimestre:</b> ${inputNotas[1]}</li>
+                                <li class="list-group-item"><b>3º Bimestre:</b> ${inputNotas[2]}</li>
+                                <li class="list-group-item"><b>4º Bimestre:</b> ${inputNotas[3]}</li>
+                                <li class="list-group-item">TOTAL FINAL: <b>${totalNotas}</b></li>
+                                <li class="list-group-item">STATUS: <b>${isAprovadoOuReprovado(totalNotas)}</b></li>
                             </ul>
                             `
                 }
@@ -263,7 +274,6 @@
             for (let i = 0; i <= valor; i++) {
                  result += (valor - i) + "\n"               ;
             }
-
             resultRegressao.innerText = result;
         }
         // 8) Tabuada de um número: peça ao usuário para inserir um número e imprima a tabuada desse número.
@@ -272,7 +282,6 @@
             for (let i = 0; i <= 10; i++) {
                 concatValues += `${numberTab.value} x ${i} = ${numberTab.value*i} \n`
             }
-
             resultTabuada.innerText = concatValues;
         }
     </script>

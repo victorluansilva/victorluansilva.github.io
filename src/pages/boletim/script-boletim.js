@@ -1,0 +1,88 @@
+// Combase no script apresentado na correção do exercício nº 5 da questão anterior, aprimore as funcionalidades do Boletim, conforme especificações abaixo:
+// Receba informações do usuário, tais como: nome, instituição de ensino e curso;
+// Defina um array de matérias que possa ser listado e definido por meio de um dropdown ou  selectlist  e adicionado a máteria do array materias; (No mínimo 6 matérias)
+// Defina validadores para que máterias já adicionadas não possam ser selecionadas novamente para adição;
+// Defina validadores para não permitir a entrada de conforme o limite dos bimestres selecionados a seguir: 1º bimestre 20 pts; 2º bimestre 25 pts, 3º bimestre 25 pts e 4º bimestre 30 pts;
+// Adapte o elemento de tag resultadoBoletim para  tag <div>
+// Apresente os resultados em formato de tabela
+// Obs.: o projeto deve aplicar estilização bootstrap sem perder ou alterar o padrão de estilo do web-site; Exemplo: o header e o footer de sua página deve está presente no projeto da mesma forma como na página inicial.
+
+
+        const ensino_base = document.getElementById("ensino_base");
+        const tipoTecnicoSuperior = document.getElementById("tipoTecnicoSuperior");
+
+        ensino_base.addEventListener("change", function() {
+        
+            if (ensino_base.checked) {
+                tipoTecnicoSuperior.style.display = "none";
+                inputGroupCurso.style.display = "none";
+            } else {
+                tipoTecnicoSuperior.style.display = "block";
+                inputGroupCurso.style.display = "block";
+            }
+            });
+        
+ 
+        const ensino_tecnico = document.getElementById("ensino_tecnico");
+        const inputGroupCurso = document.getElementById("inputGroupCurso");
+
+        
+        ensino_tecnico.addEventListener("change", function() {
+        if (ensino_tecnico.checked) {
+            inputGroupCurso.style.display = "block";
+        } else {
+            inputGroupCurso.style.display = "none";
+        }
+        });
+                
+
+        let materia = { id: 0, nome: "", notas: [], total: 0, printInfo: "" };
+        let materias = [];
+        let user = {nome: "",instituicao:"", curso:""};
+        function save() {
+            let inputNotas = [];
+            let totalNotas = 0;
+            user.nome = nomeUsuario.value;
+            user.instituicao = nomeInstituicao.value;
+            let resultados = `<b>BOLETIM DE: ${user.nome.toLocaleUpperCase()}</b><br><b>INSTITUIÇÃO/ESCOLA: ${user.instituicao.toLocaleUpperCase()} </b>`;
+
+            document.querySelectorAll("div.input-group input").forEach(e => {
+                inputNotas.push(parseFloat(e.value))
+                totalNotas += parseFloat(e.value);
+            })
+
+            materias.push(
+                {
+                    id: materia.id++,
+                    nome: nomeMateria.value.toLocaleUpperCase(),
+                    notas: inputNotas,
+                    total: totalNotas,
+                    info: `<hr>
+                            RESULTADO DE: <b>${nomeMateria.value.toLocaleUpperCase()}</b> 
+                            <ul class="list-group">
+                                <li class="list-group-item"><b>1º Bimestre:</b> ${inputNotas[0]}</li>
+                                <li class="list-group-item"><b>2º Bimestre:</b> ${inputNotas[1]}</li>
+                                <li class="list-group-item"><b>3º Bimestre:</b> ${inputNotas[2]}</li>
+                                <li class="list-group-item"><b>4º Bimestre:</b> ${inputNotas[3]}</li>
+                                <li class="list-group-item">TOTAL FINAL: <b>${totalNotas}</b></li>
+                                <li class="list-group-item">STATUS: <b>${isAprovadoOuReprovado(totalNotas)}</b></li>
+                            </ul>
+                            `
+                }
+            )
+
+            console.log(materias)
+
+            materias.forEach(e => {
+                resultados += `<br>` + e.info;
+            })
+
+            resultNotas.innerHTML = resultados;
+        }
+        function isAprovadoOuReprovado(valor) {
+            if (valor >= 60) {
+                return "APROVADO"
+            } else {
+                return "REPROVADO"
+            }
+        }

@@ -24,7 +24,7 @@
         <div class="row grid gap-0 column-gap-3 inline-block">
             <!-- CARD DE INFORMAÇÃO DO ALUNO -->
             <div class="col-4 w-25">
-                <div class="card p-3 border-info">
+                <div id="input_user" class="card p-3 border-secondary-subtle">
                     <div class="">
                         <!-- INPUT NOME -->
                         <div class="input-group mb-3">
@@ -44,11 +44,10 @@
                             </div>
                         </div>
 
-
                         <!-- INPUT CURSO -->
                         <label class="fw-medium" for="tipoEnsino">Tipo de ensino</label>
                         <div id="tipoEnsino">
-                            <div class="form-check">
+                            <div class="form-check" id="tipoEnsinoBase">
                                 <input class="form-check-input" type="checkbox" id="ensino_base" value="">
                                 <label class="form-check-label" for="ensino_base">
                                     Fundamental / Médio
@@ -71,27 +70,60 @@
                             </div>
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary"> Seguir </button>
+                            <button class="btn btn-secondary" onclick="seguir()"> Seguir </button>
                         </div>
                     </div>
                 </div>
+                <div id="output_user" class="card text-bg-light mb-3" style="max-width: 18rem;">
+                    <div id="userCardHeader" class="card-header"></div>
+                    <div class="card-body">
+                      <h5 id="userCardTitle" class="card-title"></h5>
+                      <p  id="userCardId" class="card-text"></p>
+                    </div>
+                  </div>
             </div>
-
+            <!-- CARD NOTAS E DEMAIS INFORMAÇÕES -->
             <div class="col-8">
-                <div class="card p-3 border-info">
-                    <!-- <div class="col-2 p-md-4">
-                                   <label for="nomeMateria">Matéria</label>
-                                   <input type="text" id="nomeMateria">
-                               </div>
-                               <div class="col-2 p-md-4 input-group">
-                                   <input type="number">
-                                   <input type="number">
-                                   <input type="number">
-                                   <input type="number">
-                               </div> -->
+                <div class="card p-3 border-secondary-subtle">
+                    <div class="p-md-4">
+                        <select id="dropMaterias" class="form-select"></select>
+                    </div>
+                    <div class="col-6 p-md-4 input-group">
+                        <div class="row">
+                            <div class="col-3 input-group mb-3">
+                                <span class="input-group-text"><i class="fa-solid fa-1"></i></span>
+                                <div class="form-floating">
+                                    <input class="form-control" type="number" id="b1" placeholder="00">
+                                    <label class="fw-normal" for="b1">bimestre</label>
+                                </div>
+                            </div>
+                            <div class="col-3 input-group mb-3">
+                                <span class="input-group-text"><i class="fa-solid fa-2"></i></span>
+                                <div class="form-floating">
+                                    <input class="form-control" type="number" id="b2" placeholder="00">
+                                    <label class="fw-normal" for="b1">bimestre</label>
+                                </div>
+                            </div>
+                            <div class="col-3 input-group mb-3">
+                                <span class="input-group-text"><i class="fa-solid fa-3"></i></span>
+                                <div class="form-floating">
+                                    <input class="form-control" type="number" id="b3" placeholder="00">
+                                    <label class="fw-normal" for="b1">bimestre</label>
+                                </div>
+                            </div>
+                            <div class="col-3 input-group mb-3">
+                                <span class="input-group-text"><i class="fa-solid fa-4"></i></span>
+                                <div class="form-floating">
+                                    <input class="form-control" type="number" id="b4" placeholder="00">
+                                    <label class="fw-normal" for="b1">bimestre</label>
+                                </div>
+                            </div>
 
-                    <!-- <button onclick="save()">Verificar Notas</button>
-                           <p class="m-3 p-2" id="resultNotas"></p> -->
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary" onclick="save()">Verificar Notas</button>
+                    <div class="m-3 p-2" id="resultNotas"></div>
                 </div>
             </div>
 

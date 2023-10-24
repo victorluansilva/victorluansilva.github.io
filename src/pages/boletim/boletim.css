@@ -1,10 +1,8 @@
 main.content-vls {
-
     margin-top: 200px;
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 150px;
-
 }
 
 #inputGroupCurso.hidden{
@@ -13,4 +11,8 @@ main.content-vls {
 
 #inputGroupCurso.show{
     display: block;
+}
+
+#output_user{
+    display: none;
 }

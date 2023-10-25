@@ -1,3 +1,4 @@
+//Arrow function
 const footer = () => {
     footerElement.innerHTML = `
     <!-- INICIO FOOTER -->

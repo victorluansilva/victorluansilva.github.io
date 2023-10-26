@@ -29,6 +29,8 @@ function dropdown(vetorDeString) {
   }
 }
 
+export {dropdown}
+
 dropdown(optionsMaterias);
 
 const ensino_base = document.getElementById("ensino_base");

@@ -47,7 +47,7 @@ body {
     justify-content: space-between;
 }
 
-.articles-vls {
+#articles-vls {
     flex: 1;
     margin: 50px 40px 0px 0px;
     width: auto;

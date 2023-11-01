@@ -12,7 +12,8 @@ const saveData = (event) => {
     senha.value
   );
   data.push(newData);
-  viewController.update(data);
+
+  viewController.update(data, new Usuario("",0,"",""));
 };
 
 const controller = {

@@ -24,5 +24,12 @@ const formNewUser = {
         `
        root.appendChild(formTemplate);
     },
+    update:(user)=>{
+        //ATULIZAR OS VALORES DE INPUTS PARA OS VALORES DO USUÁRIO SELECIONADO
+        nome.value = user.getNome();
+        idade.value = user.getIdade();
+        login.value = user.getLogin();
+        senha.value = user.getSenha();
+    }
 }
 export {formNewUser}

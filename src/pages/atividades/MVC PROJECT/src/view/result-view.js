@@ -3,7 +3,7 @@ const resultView = {
     const root = document.getElementById("root");
     const tableResult = document.createElement("table");
     tableResult.setAttribute("id", "resultTable");
-    tableResult.className = "table table-borderless";
+    tableResult.className = "table table-borderless table-hover";
     tableResult.innerHTML = `
         <thead>
             <tr>
@@ -24,15 +24,24 @@ const resultView = {
     const tRBody = document.getElementById("users-result");
     tRBody.innerHTML = ``;
     for (let i = 0; i < params.length; i++) {
-      const newLine = document.createElement("tr")
+      const newLine = document.createElement("tr");
+      newLine.className = 'row-line'
+      newLine.setAttribute('id',`user${i}`)
       newLine.innerHTML = `
-        <th scope="row">#${i+1}</th>            
-        <td>${params[i].getNome()}</td>            
-        <td>${params[i].getIdade()}</td>            
-        <td>${params[i].getLogin()}</th>            
-        <td>${params[i].getSenha()}</th>            
-      `
-      tRBody.appendChild(newLine)
+        <th scope="row">#${i + 1}</th>            
+        <td class="text-success"><strong ><b>${params[
+          i
+        ].getNome()}</b></strong></td>            
+        <td><strong>${params[i].getIdade()}</strong></td>            
+        <td><b class="text-info"><i>${params[
+          i
+        ].getLogin()}</b></i></td>            
+        <td><input class="form-control" type="password" value="${params[
+          i
+        ].getSenha()}" disabled style="border: none !important;
+        border-color: transparent !important;">                    
+      `;
+      tRBody.appendChild(newLine);
     }
   },
 };

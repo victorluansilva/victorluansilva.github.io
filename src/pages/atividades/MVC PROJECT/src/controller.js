@@ -13,7 +13,18 @@ const saveData = (event) => {
   );
   data.push(newData);
 
-  viewController.update(data, new Usuario("",0,"",""));
+  viewController.update(data, new Usuario("", 0, "", ""));
+};
+
+const callForUpdate = (event) => {
+  alert("left flick ");
+  console.log(event.target.closest(""));
+};
+const callForDelete = (event) => {
+  event.preventDefault();
+  if (event.button === 2) {
+    console.log(event.target.getRootNode());
+  }
 };
 
 const controller = {
@@ -21,6 +32,10 @@ const controller = {
     viewController.build();
     const form = document.getElementById("signForm");
     form.addEventListener("submit", saveData);
+
+    const userListElement = document.getElementById("users-result");
+    userListElement.addEventListener("click", callForUpdate);
+    userListElement.addEventListener("contextmenu", callForDelete);
   },
 };
 

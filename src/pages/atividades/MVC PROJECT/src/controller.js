@@ -7,6 +7,7 @@ const types = { SAVE: 0, UPDATE: 1, DELETE: 2 };
 let currentIndex = null;
 let submitState = types.SAVE;
 
+
 const handleSubmit = (event) => {
   event.preventDefault();
   const usr = new Usuario(nome.value, idade.value, login.value, senha.value);
@@ -15,7 +16,7 @@ const handleSubmit = (event) => {
   } else if (submitState == types.UPDATE) {
     updateData(currentIndex, usr);
     submitState = types.SAVE;
-    btnSub.innerText = "Salvar";
+    btnSub.innerText = "Save";
   }
   viewController.update(data, new Usuario("", 0, "", ""));
   console.log(data)
@@ -38,7 +39,7 @@ const callForUpdate = (event) => {
 
   currentIndex = event.target.closest("tr").id.split("")[4];
   submitState = types.UPDATE;
-  btnSub.innerText = "";
+  btnSub.innerText = "Update";
   console.log(data[currentIndex]);
   viewController.updateForm(data[currentIndex]);
 };

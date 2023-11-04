@@ -1,0 +1,20 @@
+[
+    {
+        "nome": "jake",
+        "idade": "15",
+        "login": "jakethedog",
+        "senha": "jakethedoog"
+    },
+    {
+        "nome": "fin",
+        "idade": "15",
+        "login": "finthehuman",
+        "senha": "finfinfin"
+    },
+    {
+        "nome": "pepeto",
+        "idade": "12",
+        "login": "pepeto",
+        "senha": "pepepeto"
+    }
+]

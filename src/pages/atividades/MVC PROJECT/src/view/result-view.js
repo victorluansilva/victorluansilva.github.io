@@ -25,8 +25,8 @@ const resultView = {
     tRBody.innerHTML = ``;
     for (let i = 0; i < params.length; i++) {
       const newLine = document.createElement("tr");
-      newLine.className = 'row-line'
-      newLine.setAttribute('id',`user${i}`)
+      newLine.className = "row-line";
+      newLine.setAttribute("id", `user${i}`);
       newLine.innerHTML = `
         <th scope="row">#${i + 1}</th>            
         <td class="text-success"><strong ><b>${params[

@@ -39,7 +39,7 @@ const resultView = {
         <td><input class="form-control" type="password" value="${params[
           i
         ].getSenha()}" disabled style="border: none !important;
-        border-color: transparent !important;">                    
+        border-color: transparent !important;"></td>                    
       `;
       tRBody.appendChild(newLine);
     }

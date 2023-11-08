@@ -14,23 +14,27 @@ const handleSubmit = (event) => {
   } else if (submitState == submitType.UPDATE) {
     updateUser(currentId, user);
     submitState = submitType.NEW;
-    btnSub.innerText = "NEW";
+    btnSub.innerText = "Save";
   }
   viewController.update(data, new Usuario("", null, "", ""));
 };
 
-//ADICIONAR NOVO USUARIO
+
+//FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
 const addUser = (newUser) => {
   data.push(newUser);
 };
-//ATUALIZAR USUARIO SELECIONADO
+
 const updateUser = (index, userToUpdate) => {
   data[index] = userToUpdate;
 };
-//DELETAR USUÁRIO SELECIONADO
+
 const deletUser = (index) => {
   data.splice(index, 1);
 };
+//FIM FUNÇÕES CRUD
+
+
 //AÇÃO PARA BOTÃO ESQUERDO
 const clickEsquerdo = (event) => {
   currentId = event.target.closest("tr").id.split("")[4];
@@ -54,6 +58,7 @@ const clickDireito = (event) => {
         .getNome()
         .toUpperCase()} será deletado`
     );
+    
   }
 };
 const controller = {

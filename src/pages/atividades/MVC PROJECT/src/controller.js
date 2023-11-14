@@ -38,14 +38,17 @@ const deletUser = (index) => {
 //AÇÃO PARA BOTÃO ESQUERDO
 const clickEsquerdo = (event) => {
   currentId = event.target.closest("tr").id.split("")[4];
-  alert(
+  const confimarEditar = window.confirm(
     `Clicou com o botão esquerdo, e o ${data[currentId]
       .getNome()
       .toUpperCase()} será carregado para edição`
   );
-  viewController.updateForm(data[currentId])
-  submitState = submitType.UPDATE;
-  btnSub.innerText = "Update";
+
+  if(confimarEditar){
+    viewController.updateForm(data[currentId])
+    submitState = submitType.UPDATE;
+    btnSub.innerText = "Update";
+  }
 
 };
 //AÇÃO PARA BOTÃO DIREITO
@@ -53,12 +56,16 @@ const clickDireito = (event) => {
   event.preventDefault();
   if (event.button == 2) {
     currentId = event.target.closest("tr").id.split("")[4];
-    alert(
+    const confirmarDelecao = window.confirm(
       `Clicou com o botão direito, e o ${data[currentId]
         .getNome()
         .toUpperCase()} será deletado`
     );
     
+    if (confirmarDelecao) {
+      deletUser(currentId)
+      viewController.update(data, new Usuario("", null, "", ""));
+    }
   }
 };
 const controller = {

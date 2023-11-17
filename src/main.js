@@ -7,8 +7,7 @@ const objt = [
     {titulo:'PROJETOS', endereco:'#projetos'},
     {titulo:'ARTIGOS', endereco:'./src/pages/articles/articles.html'},
     {titulo:'CONTATO', endereco:'#contato'},
-    {titulo:'MAIS', endereco:'#contato'},
-    {titulo:'TREM', endereco:'#contato'},
+    {titulo:'CONSUMO', endereco:'./src/pages/calc_consumo_viagem/consumo.html'}
 ]
 
 // header();

@@ -2,6 +2,8 @@ import { viewController } from "./view/viewController.js";
 import { Usuario } from "./model/usuario.model.js";
 import { dataService } from "./api/data.service.js";
 
+const ds = require("./api/data.service.js")
+
 let data = [];
 const submitType = { NEW: 0, UPDATE: 1 };
 let submitState = submitType.NEW;
@@ -72,9 +74,8 @@ const clickDireito = (event) => {
 const controller = {
   iniciar: () => {
     viewController.build();
+    console.log(dataService.readFile())
    
-    console.log(dataService())
-
     const form = document.getElementById("signForm");
     form.addEventListener("submit", handleSubmit);
     const userList = document.getElementById("users-result");

@@ -1,18 +1,16 @@
-const filePath = "../../public/data/users.json";
-const fs = require("fs");
+import * as fs from 'fs';
+
+const filePath = '../../public/data/users.json';
+
 
 const dataService = {
   readFile: () => {
-    const users = fetch('users.json')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Data:', data)
-      }).catch(
-        error => console.log('Error reading data', error)
-      );
-      return users;
+    fs.readFile(filePath).then((data) => {
+      console.log(data)
+    }).catch((error)=>{
+      console.log(error)
+    })
   },
-  // readFile:()=>{},
 };
 
 export { dataService };

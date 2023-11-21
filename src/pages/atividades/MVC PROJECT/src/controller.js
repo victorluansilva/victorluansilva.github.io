@@ -2,8 +2,6 @@ import { viewController } from "./view/viewController.js";
 import { Usuario } from "./model/usuario.model.js";
 import { dataService } from "./api/data.service.js";
 
-const ds = require("./api/data.service.js")
-
 let data = [];
 const submitType = { NEW: 0, UPDATE: 1 };
 let submitState = submitType.NEW;

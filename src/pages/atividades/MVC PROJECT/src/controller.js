@@ -7,6 +7,17 @@ const submitType = { NEW: 0, UPDATE: 1 };
 let submitState = submitType.NEW;
 let currentId = null;
 
+const loadData = async () => {
+  const temp = await dataService.carregarDados();
+
+  data = temp.map(
+    (usuario) =>
+      new Usuario(usuario.nome, usuario.idade, usuario.login, usuario.senha)
+  );
+
+  viewController.update(data, new Usuario("", null, "", ""));
+};
+
 const handleSubmit = (event) => {
   event.preventDefault();
   const user = new Usuario(nome.value, idade.value, login.value, senha.value);
@@ -20,21 +31,21 @@ const handleSubmit = (event) => {
   viewController.update(data, new Usuario("", null, "", ""));
 };
 
-
 //FUNÇÕES DE ADICIONAR, ATUALIZAR E REMOVER
 const addUser = (newUser) => {
   data.push(newUser);
+  dataService.salvarDados(data)
 };
 
 const updateUser = (index, userToUpdate) => {
   data[index] = userToUpdate;
+  dataService.salvarDados(data)
 };
 
 const deletUser = (index) => {
   data.splice(index, 1);
 };
 //FIM FUNÇÕES CRUD
-
 
 //AÇÃO PARA BOTÃO ESQUERDO
 const clickEsquerdo = (event) => {
@@ -45,12 +56,11 @@ const clickEsquerdo = (event) => {
       .toUpperCase()} será carregado para edição`
   );
 
-  if(confimarEditar){
-    viewController.updateForm(data[currentId])
+  if (confimarEditar) {
+    viewController.updateForm(data[currentId]);
     submitState = submitType.UPDATE;
     btnSub.innerText = "Update";
   }
-
 };
 //AÇÃO PARA BOTÃO DIREITO
 const clickDireito = (event) => {
@@ -62,9 +72,9 @@ const clickDireito = (event) => {
         .getNome()
         .toUpperCase()} será deletado`
     );
-    
+
     if (confirmarDelecao) {
-      deletUser(currentId)
+      deletUser(currentId);
       viewController.update(data, new Usuario("", null, "", ""));
     }
   }
@@ -72,14 +82,14 @@ const clickDireito = (event) => {
 const controller = {
   iniciar: () => {
     viewController.build();
-    console.log(dataService.readFile())
-   
     const form = document.getElementById("signForm");
     form.addEventListener("submit", handleSubmit);
     const userList = document.getElementById("users-result");
-    //ADICIONADO ESCUTADOR PARA CLIQUE ESQUERDO DENTRO DA TABELA DE USUARIOS
     userList.addEventListener("click", clickEsquerdo);
     userList.addEventListener("contextmenu", clickDireito);
+    window.onload = () =>{
+      loadData();
+    }
   },
 };
 
